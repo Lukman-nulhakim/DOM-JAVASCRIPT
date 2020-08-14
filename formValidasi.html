@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            color: red;
+            width: 300px;
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+            <!-- // 1 VALIDASI REG EX ATAU REGULER EXSPRECTION -->
+    <!-- <form action="proses.php" method="GET" name="formKu" id="formKu">
+        <p>username : <input type="text" name="username" id="username">
+    <span id="pesan"></span></p>
+        <p><input type="submit" name="submit" id="submit" value="Kirim"></p>
+    </form> -->
+            <!-- 2 -->
+    <form action="proses.php" method="GET" name="formKu" id="formKu">
+        <p>Username : <input type="text" name="username" id="username">
+        <span id="usernameSpan"></span></p>
+        <p>Password : <input type="password" name="pass" id="pass"><input type="checkbox" id="lihatPass">
+        <span id="passSpan"></span></p>
+        <p>Konfirmasi Password : <input type="password" name="konfPass" id="konfPass">
+        <span id="konfPassSpan"></span></p>
+        <p><input type="checkbox" name="syarat" id="syarat">
+        Saya menyetujui syarat dan ketentuan <span id="syaratSpan"></span></p>
+        <p><input type="submit" name="submit" id="submit" value="kirim"></p>
+    </form>
+
+    <script>
+                // 1 VALIDASI REG EX ATAU REGULER EXSPRECTION
+    // var formKuData = document.getElementById("formKu");
+    // var usernameData = document.getElementById("username");
+    // var pesanData = document.getElementById("pesan");
+
+    // function diProses(e){
+        // if (usernameData.value.trim()=== "") { // trim() = untuk menghindari user menekan spaci lebih dari 1 kali
+        //     pesanData.innerHTML = "Username harus diisi";
+        //     pesanData.className = "error";
+        //     e.preventDefault();
+        // } else if (/\W/.test(usernameData.value.trim())) {
+        //     pesanData.innerHTML = "Hanya bisa diisi karakter alfanumerik"
+        //     pesanData.className = "error";
+        //     e.preventDefault();
+        // } else if (usernameData.value.trim().length < 6) { // untuk menentukan validasi panjang karakter yg harus di isi
+        //     pesanData.innerHTML = "Minimal diisi 6 karakter";
+        //     pesanData.className = "error";
+        //     e.preventDefault();
+        // }
+                  //-----------------------------------------------------------------
+    //         var usernameError = "";
+    //     if (usernameData.value.trim()=== "") { // trim() = untuk menghindari user menekan spaci lebih dari 1 kali
+    //         usernameError = "Username Harus Di isi";
+    //     } else if (/\W/.test(usernameData.value.trim())) {
+    //         usernameError = "Hanya bisa diisi karakter alfanumerik"
+    //     } else if (usernameData.value.trim().length < 6) {  // untuk menentukan validasi panjang karakter yg harus di isi
+    //         usernameError = "Minimal diisi 6 karakter";
+    //     }
+
+    //     if (usernameError !== "") {
+    //         pesanData.innerHTML = usernameError;
+    //         pesanData.className = "error";
+    //         usernameData.style.border = "2px solid red";
+    //         e.preventDefault(); // untuk mematikan fungsi
+    //     }
+    // }
+
+    // function hapusError(e){
+    //     e.target.style.border = "";
+    //     e.target.parentElement.lastChild.innerHTML = "";
+    //     pesanData.classList.remove('error'); // ini cara menghapus classname
+    // }
+    // formKuData.addEventListener("submit",diProses);
+    // usernameData.addEventListener("focus",hapusError);
+
+        // var data = /\w/;
+        // console.log(data.test('aaa'));
+        // console.log(data.test('123'));
+        // console.log(data.test('bn54'));
+        // console.log(data.test('AAA!'));
+        // console.log(data.test('@aku'));
+        // console.log(data.test('zzzzzz.'));
+
+    //---------------------------------------- 2--------------------------------------------
+    var formKuData = document.getElementById("formKu");
+
+    var usernameData = document.getElementById("username");
+    var usernameSpanData = document.getElementById("usernameSpan");
+
+    var passData = document.getElementById("pass");
+    var passSpanData = document.getElementById("passSpan");
+
+    var konfPassData = document.getElementById("konfPass");
+    var konfPassSpanData = document.getElementById("konfPassSpan");
+
+    var syaratData = document.getElementById("syarat");
+    var syaratSpanData = document.getElementById("syaratSpan");
+
+    var lihatPassData = document.getElementById("lihatPass");
+
+    // ini kondisi untuk melihat password dan menjadi password lagi
+    function lihat(){
+        if (lihatPassData.checked) {
+            passData.setAttribute("type","text");
+        } else {
+            passData.setAttribute("type","password");
+        }
+    }
+    lihatPassData.addEventListener('click',lihat);
+
+    function diProses(e) {
+    // validasi username
+        var usernameError = "";
+
+        if (usernameData.value.trim() === "") {
+            usernameError = "Username harus di isi";
+        } else if(/\W/.test(usernameData.value.trim())) {
+            usernameError = "Hanya bisa diisi karakter alfanumerik";
+        } else if(usernameData.value.trim().length < 6){
+            usernameError = "Username minimal 6 karakter";
+        }
+        
+
+        if(usernameError !== ""){
+            usernameSpanData.innerHTML = usernameError;
+            usernameSpanData.className = "error";
+            usernameSpanData.style.border = "2px solid red";
+            e.preventDefault();
+        
+        // validasi password
+        var passError = "";
+
+        if (passData.value.trim() === "") {
+            passError = "Password harus di isi";
+        } else if(passData.value.trim().length < 6){
+            passError = "password minimal 6 karakter";
+        }
+
+        if(passError !== ""){
+            passSpanData.innerHTML = passError;
+            passSpanData.className = "error";
+            passSpanData.style.border = "2px solid red";
+            e.preventDefault();
+        }
+        
+        // validasi konfirmasi password
+        var konfPassError = "";
+
+        if (konfPassData.value.trim() === "") {
+            konfPassError = "Konfirmasi Password harus di isi";
+        } else if(konfPassData.value.trim().length < 6){
+            konfPassError = "Konfirmasi Password minimal 6 karakter";
+        } else if(konfPassData.value !== passData.value){
+            konfPassError = "Konfirmasi Password tidak sama";
+        }
+
+        if(konfPassError !== ""){
+            konfPassSpanData.innerHTML = konfPassError;
+            konfPassSpanData.className = "error";
+            konfPassSpanData.style.border = "2px solid red";
+            e.preventDefault();
+        }
+
+        // validasi syarat checkbox
+        var syaratError = "";
+        if (syaratData.checked !== true) {
+            syaratError = "Syarat dan ketentuan harus di setujui";
+        }
+
+        if (syaratError !== "") {
+            syaratSpanData.innerHTML = syaratError;
+            syaratSpanData.className = "error";
+            e.preventDefault();
+        }
+    }
+}
+
+    formKuData.addEventListener("submit",diProses);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    
+    <section class="data">
+        <!-- <img src="ukhti1.jpg" alt="gambar" class="text"> -->
+        <img src="img/text.png" alt="gambar" class="text">
+        <img src="img/mountain1.png" alt="gambar" class="layer1">
+        <img src="img/mountain2.png" alt="gambar" class="layer2">
+    </section>
+
+    <section>
+        <h2>Data Produk</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus delectus, voluptate, nesciunt dolorem quae quam cumque maxime ab non eius et temporibus rerum molestias similique asperiores sint velit pariatur? Ipsam?</p>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(window).scroll(function(){
+            var scroll = $(this).scrollTop();
+            console.log(scroll);
+            $('.layer1').css({
+                width: (100 + scroll/5) + "%"
+            })
+            $('.layer2').css({
+                width: (100 + scroll/5) + "%",
+                left: scroll/30 + "%"
+            })
+            $('.text').css({
+                top: - scroll/10 + "%"
+            })
+        })
+    </script>
+</body>
+</html>

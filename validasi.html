@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test{
+            padding: 10px 30px;
+            background-color: blueviolet;
+            color: white;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+                        <!-- Form 1 fungsi ketika diketik lalu di enter muncul di textarea-->
+    <!-- <p>Nama Produk : <input type="text" name="produk" id="namaProduk"></p>
+    <p>Deskripsi Produk : <textarea name="ketik" id="ketik" rows="5" cols="20"></textarea></p> -->
+
+                        <!-- Form 2 fungsi ketika diklik checkboxnya muncul dibawahnya,
+                        dan ketika klik button ceklis semua dia menceklis semua -->
+    <p>Buku :
+        <input type="checkbox" id="belajarJs" value="JS"> Javascript
+        <input type="checkbox" id="belajarPhp" value="PHP"> PHP
+        <input type="checkbox" id="belajarHtml" value="HTML"> HTML
+    </p>
+    <p>
+        <button id="periksa">Periksa</button>
+        <button id="checklistSemua">checklist Semua</button>
+        <button id="kosongkanSemua">kosongkan Semua</button>
+    </p>
+    <p>Hasil : <span id="hasil"></span></p>
+
+                <!-- challange validasi-->
+    <!-- <form action="" onsubmit="validasi()">
+        <p id=""></p>
+        <p> username : <input type="text" name="nama" id="nama"></p>
+        <button type="submit">Kirim data</button>
+    </form> -->
+                <!-- challange validasi by agung -->
+    <form action="test.php">
+        <p>username : <input type="text" name="username" id="username">
+        <button type="button" id="btn">Submit</button>
+    </p>
+    </form>
+
+    <script>
+                        // JS-1 fungsi ketika diketik lalu di enter muncul di textarea
+    // var namaProdukData = document.getElementById("namaProduk");
+    // var deskripsiProdukData = document.getElementById("ketik");
+
+    // function diProses(e){
+    //     if (e.key == "Enter") {
+    //         var namaProdukSekarang = namaProdukData.value + "\n";
+    //         var deskripsiProdukSekarang = deskripsiProdukData.value;
+    //         deskripsiProdukData.value = deskripsiProdukSekarang + namaProdukSekarang;
+    //         namaProdukData.value = "";
+    //         namaProdukData.focus();
+    //     }
+        
+    // }
+    // namaProdukData.addEventListener("keypress",diProses);
+                    
+                    
+                        // JS-2 fungsi ketika diklik checkboxnya muncul dibawahnya
+                        // dan ketika klik button ceklis semua dia menceklis semua
+    var belajarJs = document.getElementById("belajarJs");
+    var belajarPhp = document.getElementById("belajarPhp");
+    var belajarHtml = document.getElementById("belajarHtml");
+    var periksaData = document.getElementById("periksa");
+    var hasilData = document.getElementById("hasil");
+    var checklistSemua = document.getElementById("checklistSemua");
+    var kosongkanSemua = document.getElementById("kosongkanSemua");
+
+    function diPeriksa(){
+        hasilData.innerHTML = "";
+
+        if (belajarJs.checked) {
+            hasilData.innerHTML += belajarJs.value + " ";
+        }
+        if (belajarPhp.checked) {
+            hasilData.innerHTML += belajarPhp.value + " ";
+        }
+        if (belajarHtml.checked) {
+            hasilData.innerHTML += belajarHtml.value + " ";
+        }
+    }
+
+    function diChecklist(){
+        belajarJs.checked = true;
+        belajarPhp.checked = true;
+        belajarHtml.checked = true;
+    }
+    function diKosongkan(){
+        belajarJs.checked = false;
+        belajarPhp.checked = false;
+        belajarHtml.checked = false;
+    }
+
+    periksaData.addEventListener("click",diPeriksa);
+    checklistSemua.addEventListener("click",diChecklist);
+    kosongkanSemua.addEventListener("click",diKosongkan);
+
+    // --------------- challenge validasi alert ------------------
+    function validasi(){
+        var name = document.getElementById("nama").value;
+        if (name !== "") {
+            return true;
+        } else {
+            alert('anda harus mengisi');
+
+        }
+    }
+
+    //--------------challange validasi by agung-------------------------
+    document.getElementById("btn").addEventListener("click",function(){
+        if (document.getElementById("username").value == ""){
+            var crtP =document.createElement('p')
+            crtP.classList.add('test')
+            crtP.textContent = "Data tidak boleh kosong"
+            document.querySelector('body').append(crtP)
+        } else {
+            document.querySelector('form').submit()
+        }
+    })
+    document.getElementById('username').addEventListener('focus', function(){
+        document.querySelector('.test').remove()
+    })
+
+
+
+                     // JS-3
+    </script>
+
+</body>
+</html>

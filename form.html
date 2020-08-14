@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* span{
+            background-color: aqua;
+            padding: 5px 20px;
+            cursor: pointer;
+        } */
+        #hasil{
+            width: 300px;
+            height: 50px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+<!-- ---------------------------------form-1------------------------------------>
+    <!-- <form action="proses.php" id="formku" name="formku" method="GET">
+        <p>username : <input type="text" name="username" id="username"></p>
+
+        <p><input type="checkbox" name="js" id="js" value="Belajar JS">Belajar JS</p>
+
+        <p><input type="submit" name="submit" id="submit" value="Kirim"></p>
+    </form> -->
+
+<!----------------------------------form-2------------------------------------- -->
+
+    <!-- <form action="proses.php" id="formku" name="formku" method="GET">
+        <p>username : <input type="text" name="username" id="username"></p>
+    </form>
+    <p><span id="spanSubmit">sumbit form</span></p>
+    <span id="spanReset">Reset Form</span> -->
+
+    <!----------------------------form-3 --------------------------------------------->
+    <!-- <form action="proses.php" id="formku" name="formku" method="GET">
+        <p>username : <input type="text" name="username" id="username"></p>
+        <p><input type="submit" name="submit" id="submit" value="Simpan"></p>
+    </form>
+    <p>Hasil : <span id="hasil"></span></p>
+    <p>Hasil : <input type="text" id="hasil"></p> -->
+<!--------------------------------- form-4--------------------------------------->
+<!-- <p>username : <input type="text" name="username" id="username"></p>
+<p><button id="simpanData">Simpan Data</button></p>
+<p>Hasil : <input type="text" name="hasil" id="hasil"></p> -->
+
+<!---------------------------------- form-5 -------------------------->
+<!-- <p>username : <input type="text" name="username" id="username"></p>
+<p>Email : <input type="text" name="email" id="email"></p> -->
+<!----------------------------------form-6 ---------------------------->
+<!-- <p>username : <input type="text" name="username" id="username"></p>
+<p>Email : <input type="text" name="email" id="email"></p>
+<p>Jalankan : <button id="focusU">Arahkan ke username</button></p>
+<button id="focusE">Arahkan ke email</button> -->
+
+<!----------------------------------form-7 ---------------------------->
+<!-- <p>Masukan Deskripsi <input type="text" id="ketik"></p>
+<div id="hasil"></div> -->
+
+<!----------------------------------form-8 ---------------------------->
+<!-- <p>masukan nama : <input type="text" name="username" id="username"></p>
+<p>hasil keydown : <span id="datakeydown"></span></p>
+<p>hasil keypress : <span id="datakeypress"></span></p>
+<p>hasil keyup : <span id="datakeyup"></span></p> -->
+
+<!----------------------------------form-9---------------------------->
+<!-- <p>Masukan alamat : <input type="text" name="ketik" id="ketik"></p>
+<p>jumlah huruf 'a' : <span id="hasilA"></span></p>
+<p>jumlah huruf 'o' : <span id="hasilO"></span></p> -->
+
+<!-- --------------------hitung huruf ----------------------->
+<!-- <form name="data">
+    <input type="text" name="inputdata" onkeyup="hitung()" id="data">
+    <span id="hasil">0</span>
+</form> -->
+<!-------------------- MUNCULIN PASSWORD -------------------->
+<p>password : <input type="password" id="password"></p>
+<p><button id="tombol">Munculkan Password</button></p>
+
+
+<script>
+
+// --------------------------JS-1--------------------------
+    // ini memanggil id
+        // var formData = document.getElementById("formku");
+        // var userNameData = document.getElementById("username");
+        // var jsData = document.getElementById("js");
+        // var submitData = document.getElementById("submit");
+
+    // ini mengambil data menggunakan forms dan tipedatanya adalah array
+        // var formData = document.forms[0];
+        // var userNameData = document.forms[0][0];
+        // var jsData = document.forms[0][1];
+        // var submitData = document.forms[0][2];
+
+    // ini memanggil mengguanakan name sama seperti getAttribut
+        // var formData = document.forms.formku;
+        // var userNameData = document.forms.formku.username;
+        // var jsData = document.forms.formku.js;
+        // var submitData = document.forms.formku.submit;
+
+        // console.log(formData);
+        // console.log(userNameData);
+        // console.log(jsData);
+        // console.log(submitData);
+
+// -----------------------------JS-2-----------------------------
+
+    // ini fungsi untuk mereset
+        // var formData = document.getElementById("formku");
+        // var spanSubmitData = document.getElementById("spanSubmit");
+        // var spanResetData = document.getElementById("spanReset");
+
+        // function diSubmit(){
+        //     formData.submit();
+        // }
+        // function diReset(){
+        //     formData.reset();
+        // }
+
+        // spanSubmitData.addEventListener("click",diSubmit);
+        // spanResetData.addEventListener("click",diReset);
+//-----------------------------JS-3---------------------------------
+    // ini fungsi untuk mensubmit tanpa ngeload mengguanakan prevent default
+        // var formData = document.getElementById("formku");
+        // var usernameData = document.getElementById("username");
+        // var hasilData = document.getElementById("hasil");
+
+        // function diProses(e){
+        //     e.preventDefault();  untuk mematikan fungsi load pada sumbit
+        //     hasilData.innerHTML = usernameData.value;
+        //     hasilData.value = usernameData.value;
+        //     hasilData.disabled = "true";
+        // }
+
+        // formData.addEventListener("submit",diProses);
+//---------------------------------JS-4-------------------------------
+    // ini fungsi untuk mensubmit tanpa ngeload mengguanakan prevent default TANPA MENGGUNAKAN FORM
+        // var simpanData = document.getElementById("simpanData");
+        // var usernameData = document.getElementById("username");
+        // var hasilData = document.getElementById("hasil");
+
+        // function diProses(){
+        //     hasilData.value = usernameData.value;
+        //     hasilData.disabled = "true";
+
+        // }
+        // simpanData.addEventListener("click",diProses);
+//------------------------------JS-5--------------------------------------
+    // ini fungsi untuk fokus pada inputan yg diclick ketika di arahkan kefokusnya dia berubah warna hampir sama dengan active
+            // var usernameData = document.getElementById("username");
+            // var emailData = document.getElementById("email");
+
+            // function diFocus(e){
+            //     e.target.style.border = "4px solid green";
+            // }
+
+            // function diBlur(e){
+            //     e.target.style.border = "4px solid red";
+            // }
+
+            // usernameData.addEventListener("focus",diFocus);
+            // emailData.addEventListener("focus",diFocus);
+            // usernameData.addEventListener("blur",diBlur);
+            // emailData.addEventListener("blur",diBlur);
+//--------------------------------JS-6---------------------------------------
+    // change itu fungsi ketika dipilih atau di enter baru fungsinya jalan
+            // var usernameData = document.getElementById("ketik");
+            // console.log(usernameData);
+            
+            // function diChange(e){
+            //     e.target.style.border = "4px solid red";
+            // }
+
+            // usernameData.addEventListener("change",diChange);
+
+    // ketika diklik fokus inputan formnya bewarna
+            // var userNameData = document.getElementById("username");
+            // var emailData = document.getElementById("email");
+
+            // function diFocus(e){
+            //     e.target.style.border = "4px solid aqua";
+            // }
+
+            // function diBlur(e){
+            //     e.target.style.border = "4px solid red";
+            // }
+
+            // userNameData.addEventListener("focus",diFocus);
+            // emailData.addEventListener("focus",diFocus);
+            // userNameData.addEventListener("blur",diBlur);
+            // emailData.addEventListener("blur",diBlur);
+
+            // var focusUData = document.getElementById("focusU");
+            // var focusEData = document.getElementById("focusE");
+
+            // focusUData.addEventListener("click", function(){
+            //     userNameData.focus();
+            // });
+            // focusEData.addEventListener("click", function(){
+            //     emailData.focus();
+            // });
+
+//-------------------------------JS-7------------------------------
+// keydown = bewarna merah ketika dihapus
+// keypress = bewarna kuning ketika diketik
+// keyup = bewarna blue ketika tidak diketik
+    // var ketikData = document.getElementById("ketik");
+    // var hasilData = document.getElementById("hasil");
+
+    // function diKeyDown(){
+    //     hasilData.style.backgroundColor = "red";
+    // }
+    // function diKeypress(){
+    //     hasilData.style.backgroundColor = "yellow";
+    // }
+    // function diKeyup(){
+    //     hasilData.style.backgroundColor = "blue";
+    // }
+
+    // ketikData.addEventListener("keydown",diKeyDown);
+    // ketikData.addEventListener("keypress",diKeypress);
+    // ketikData.addEventListener("keyup",diKeyup);
+//-------------------------------JS-8------------------------------
+// keydown = memunculkan 1 huruf sebelumnya ketika dihapus
+// keypress = dikurangin 1 huruf dengan inputan yg diketik
+// keyup = ketika diketik dan dihapus sama mengikuti dengan inputannya
+    // var userName = document.getElementById("username");
+    // var dataKeydown = document.getElementById("datakeydown");
+    // var dataKeypress = document.getElementById("datakeypress");
+    // var dataKeyup = document.getElementById("datakeyup");
+
+    // function diKeydown(){
+    //     dataKeydown.innerHTML = userName.value;
+    // }
+    // function diKeypress(){
+    //     dataKeypress.innerHTML = userName.value;
+    // }
+    // function diKeyup(){
+    //     dataKeyup.innerHTML = userName.value;
+    // }
+
+    // userName.addEventListener("keydown",diKeydown);
+    // userName.addEventListener("keypress",diKeypress);
+    // userName.addEventListener("keyup",diKeyup);
+
+//-------------------------------JS-9------------------------------
+
+    // var ketikData = document.getElementById("ketik");
+    // var hasilDataA = document.getElementById("hasilA");
+    // var hasilDataO = document.getElementById("hasilO");
+
+    // var jumlahA = 0;
+    // var jumlahO = 0;
+
+    // function diProses(e){
+    //     if(e.key == "a"){
+    //         jumlahA++;
+    //         hasilDataA.innerHTML = jumlahA;
+    //     }
+    //     if(e.key == "o"){
+    //         jumlahO++;
+    //         hasilDataO.innerHTML = jumlahO;
+    //     }
+    // }
+    // ketikData.addEventListener("keyup",diProses);
+
+//---------------------hitung huruf------------------------------>
+    // function hitung(){
+    //     var teks = document.data.inputdata.value.length;
+    //     var total = document.getElementById("hasil");
+    //     total.innerHTML = teks;
+    // }
+
+//-----------------------munculin password------------------------------
+var passwordData = document.getElementById("password");
+var tombolPassword = document.getElementById("tombol");
+    function proses(){
+        if(tombolPassword.innerHTML === "Munculkan Password"){
+            passwordData.type = "text";
+            tombolPassword.innerHTML = "Sembunyikan Password";
+        } else {
+            passwordData.type = "password";
+            tombolPassword.innerHTML = "Munculkan Password";
+        }
+    }
+    tombolPassword.addEventListener("click", proses);
+
+    </script>
+</body>
+</html>

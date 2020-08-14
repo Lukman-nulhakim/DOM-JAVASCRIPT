@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review JS</title>
+    <style>
+        /* h1,h2,div{
+            border: 2px solid black;
+            width: 200px;
+            padding: 10px;
+            text-align: center;
+            color: aqua;
+            background-color: red;
+        } */
+
+        table, tr, td {
+        border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- event - event click -->
+    <!-- <h1 onclick="alert('Saya muncul ktika diklik')">tombol 1</h1>
+    <h1 ondblclick="alert('Saya muncul pas diklik 2x')">tombol 2</h1>
+    <h1 oncontextmenu="alert('Saya muncul pas diklik kanan')">tombol 3</h1>
+    <h1 onmouseover="alert('Saya muncul pas mouse mengarah ke saya')">tombol 4</h1> -->
+
+    <!-- fungsi click pada DOM -->
+    <!-- <h1 onclick="document.querySelector('p').innerHTML='Halo saya sudah diklik';">
+        Data Karyawan
+    </h1>
+    <p></p> -->
+
+    <!-- innerHTML seperti kya echo untuk menampilkan di browser -->
+    <!-- <h1 onclick="tampilkan();">Data Karyawan</h1>
+    <p></p>
+    <script>
+        function tampilkan(){
+            document.querySelector("p").innerHTML="Saya sudah di klik";
+        }
+    </script> -->
+
+    <!-- <h1 id="data">Data Karyawan</h1>
+    <p></p>
+    <script>
+        function tampilkan(){
+            document.querySelector("p").innerHTML="Saya munculkan"
+        }
+
+        var baru = document.getElementById("data");
+        baru.onclick = tampilkan;
+    </script> -->
+
+    <!-- addEventListener -->
+    <!-- <h1 id="judul">Data Karyawan</h1>
+    <p></p>
+    <script>
+        function tampilkan(){
+            document.querySelector("p").innerHTML = "Kencan with rangga";
+        }
+        var muncul = document.getElementById("judul");
+        muncul.addEventListener("click",tampilkan);
+    </script> -->
+
+    <!-- <h1 id="judul">Data karyawan</h1>
+    
+    <script>
+        var muncul = document.getElementById("judul");
+
+        muncul.addEventListener("click", function(event){
+            console.log(event.target);
+        });
+    </script> -->
+
+    <!-- <h1 id="judul">Data Karyawan</h1>
+    <p></p>
+
+    <script>
+        var h1Data = document.getElementById("judul");
+        var pData = document.querySelector("p");
+
+        h1Data.addEventListener("click", function(event){
+            if(event.ctrlKey === true){
+            pData.innerHTML = "Anda menekan tombol CTRL yaa ?";
+            } else if(event.altKey === true){
+                pData.innerHTML = "Anda menekan tombol ALT yaa ?";
+            } else {
+                pData.innerHTML = "Kalo ini pasti diclik";
+            }
+        });
+    </script> -->
+
+    <!-- <h1 id="judul">Data A</h1>
+    <h2 id="judul2">Data B</h2>
+    <div id="tagDiv">Data C</div>
+    <p id="data"></p>
+
+    <script>
+        var h1Data = document.getElementById("judul");
+        var h2Data = document.getElementById("judul2");
+        var divData = document.getElementById("tagDiv");
+        var pData = document.getElementById("data");
+
+        function tampilkan(e) {
+            var idTarget = e.target.getAttribute("id");
+            if (idTarget === "judul" || idTarget === "judul2") {
+                e.target.style.backgroundColor = "green";
+            } else {
+                e.target.style.backgroundColor = "blue";
+            }
+            var pesan = "Sedang Belajar " + e.target.innerHTML;
+            pData.innerHTML = pesan;
+        }
+
+        h1Data.addEventListener("click", tampilkan);
+        h2Data.addEventListener("click", tampilkan);
+        divData.addEventListener("click", tampilkan);
+    </script> -->
+
+    <!-- mewarnai table dengan ngebaca tulisannya -->
+    <!-- <table>
+        <tr>
+            <td>red</td>
+            <td>blue</td>
+            <td>yellow</td>
+        </tr>
+        <tr>
+            <td>green</td>
+            <td>black</td>
+            <td>aqua</td>
+        </tr>
+        <tr>
+            <td>pink</td>
+            <td>orange</td>
+            <td>silver</td>
+        </tr>
+    </table>
+
+    <script>
+        var warna = document.querySelector("table");
+        console.log(warna);
+
+        function warnabox(e){
+            e.target.style.backgroundColor = e.target.innerHTML;
+        }
+        warna.addEventListener('click', warnabox);
+    </script> -->
+
+</body>
+</html>

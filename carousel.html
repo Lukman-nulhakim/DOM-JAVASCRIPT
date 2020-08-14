@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin: 10px auto;
+            width: 400px;
+            height: 400px;
+            display: block;
+            border: 5px solid white;
+            box-shadow: 0px 0px 10px black;
+        }
+        p{
+            text-align: center;
+        }
+        #prev{
+            float: left;
+        }
+        #next{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <a href="https://www.google.com" id="linkshow">
+            <img src="nisasbyan.jpg" alt="gambar" id="slideshow" width="400" height="400">
+        </a>
+    </div>
+    <p>
+        <button id="start">Star Slideshow</button>
+        <button id="stop">Stop Slideshow</button>
+        <button id="prev"><< Prev</button>
+        <button id="next">Next >></button>
+    </p>
+
+    <script>
+        var slideshowData = document.getElementById("slideshow");
+        var linkshowData = document.getElementById("linkshow");
+        var startData = document.getElementById("start");
+        var stopData = document.getElementById("stop");
+        var prevData = document.getElementById("prev");
+        var nextData = document.getElementById("next");
+
+        var arrayGambar = ["nisasbyan.jpg","ukhti.jpg","ukhti1.jpg","ukhti2.jpg","ukhti3.jpg"];
+        var arrayLink = ["http://www.google.com","http://www.facebook.com","http://www.instagram.com","http://www.twitter.com"];
+
+        var counter = 0;
+        var intervalID = 0;
+
+        function nextSlideshow(){
+            counter++;
+            if (counter === 5) {
+                counter = 0;
+            }
+            slideshowData.setAttribute("src",arrayGambar[counter]);
+            linkshowData.setAttribute("href",arrayLink[counter]);
+        }
+
+        function prevSlideshow(){
+            counter--;
+            if (counter < 0) {
+                counter = 4;
+            }
+            slideshowData.setAttribute("src",arrayGambar[counter]);
+            prevData.setAttribute("href",arrayLink[counter]);
+        }
+
+        function startSlideshow(){ // set interval adalah untuk mengatur waktu
+                    // ini cara pertama
+            // if (intervalID === 0) {
+                // intervalID = setInterval(nextSlideshow,1000);
+            // }
+                    // ini cara ke 2
+            intervalID = setInterval(nextSlideshow,1000);
+            
+        }
+
+        function stopInterval(){
+                    // ini cara ke 1
+            // clearInterval(intervalID);
+            // intervalID = 0;
+                    // ini cara ke 2
+            clearInterval(intervalID);
+        }
+        
+        nextData.addEventListener("click", nextSlideshow);
+        prevData.addEventListener("click", prevSlideshow);
+        startData.addEventListener('click', startSlideshow);
+        stopData.addEventListener('click', stopInterval);
+    </script>
+</body>
+</html>
